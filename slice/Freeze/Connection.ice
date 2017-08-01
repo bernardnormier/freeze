@@ -26,7 +26,6 @@ local exception TransactionAlreadyInProgressException
 {
 }
 
-
 /**
  *
  * A connection to a database (database environment with Berkeley
@@ -50,7 +49,6 @@ local interface Connection
      **/
     Transaction beginTransaction();
 
-
     /**
      *
      * Returns the transaction associated with this connection.
@@ -60,16 +58,19 @@ local interface Connection
      **/
     ["cpp:const"] Transaction currentTransaction();
 
-
     /**
      *
-     * Remove an old unused Freeze Map index
+     * Remove an unused Freeze Map index.
+     *
+     * @param mapName The name of the Freeze map.
+     *
+     * @param indexName The name of the index.
+     *
      * @throws IndexNotFoundException Raised if this index
-     * does not exist
+     * does not exist.
      *
      **/
     void removeMapIndex(string mapName, string indexName);
-
 
     /**
      *
@@ -79,10 +80,11 @@ local interface Connection
      **/
     void close();
 
-
     /**
      *
      * Returns the communicator associated with this connection.
+     *
+     * @return The communicator.
      *
      **/
     ["cpp:const"] Ice::Communicator getCommunicator();
@@ -90,6 +92,8 @@ local interface Connection
     /**
      *
      * Returns the encoding version used to encode the data.
+     *
+     * @return The encoding version.
      *
      **/
     ["cpp:const"] Ice::EncodingVersion getEncoding();
@@ -99,9 +103,10 @@ local interface Connection
      * The name of the connected system (for example, the Berkeley DB
      * environment).
      *
+     * @return The name of the connected system.
+     *
      **/
     ["cpp:const"] string getName();
-
 }
 
 }

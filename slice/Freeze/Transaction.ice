@@ -13,7 +13,6 @@ module Freeze
 
 local interface Connection;
 
-
 /**
  *
  * A transaction. If you want to use a transaction concurrently
@@ -43,11 +42,12 @@ local interface Transaction
 
     /**
      *
-     * Get the connection associated with this Transaction
+     * Get the connection associated with this transaction.
+     *
+     * @return The connection.
      *
      **/
     ["cpp:const"] Connection getConnection();
 }
-
 
 }
